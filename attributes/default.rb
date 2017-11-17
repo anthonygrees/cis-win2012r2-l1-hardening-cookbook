@@ -1,0 +1,41 @@
+# encoding: utf-8
+#
+# Cookbook Name:: cis-win2012r2-l1-hardening
+# Attributes:: default
+
+# expected ["S-1-1-0", "S-1-5-32-544", "S-1-5-32-545", "S-1-5-32-551"] not to include "S-1-5-32-545"
+# expected ["S-1-1-0", "S-1-5-32-544", "S-1-5-32-545", "S-1-5-32-551"] not to include "S-1-5-32-545"
+# expected ["S-1-1-0", "S-1-5-32-544", "S-1-5-32-545", "S-1-5-32-551"] not to include "S-1-5-32-545"
+# expected ["S-1-1-0", "S-1-5-32-544", "S-1-5-32-545", "S-1-5-32-551"] not to include "S-1-5-32-545"
+# expected ["S-1-1-0", "S-1-5-32-544", "S-1-5-32-545", "S-1-5-32-551"] not to include "S-1-5-32-551"
+# expected ["S-1-1-0", "S-1-5-32-544", "S-1-5-32-545", "S-1-5-32-551"] not to include "S-1-5-32-551"
+# expected ["S-1-1-0", "S-1-5-32-544", "S-1-5-32-545", "S-1-5-32-551"] not to include "S-1-5-32-551"
+# expected ["S-1-1-0", "S-1-5-32-544", "S-1-5-32-545", "S-1-5-32-551"] not to include "S-1-5-32-551"
+# expected ["S-1-5-32-544", "S-1-5-32-545", "S-1-5-32-551"] not to include "S-1-5-32-545"
+# expected ["S-1-5-32-544", "S-1-5-32-545", "S-1-5-32-551"] not to include "S-1-5-32-545"
+# expected ["S-1-5-32-544", "S-1-5-32-545", "S-1-5-32-551"] not to include "S-1-5-32-551"
+# expected ["S-1-5-32-544", "S-1-5-32-545", "S-1-5-32-551"] not to include "S-1-5-32-551"
+# expected ["S-1-5-32-544", "S-1-5-32-551"] not to include "S-1-5-32-551"
+# expected ["S-1-5-32-544", "S-1-5-32-551"] not to include "S-1-5-32-551"
+# expected ["S-1-5-32-544", "S-1-5-32-551"] not to include "S-1-5-32-551"
+# expected [] to include "S-1-5-113"
+# expected [] to include "S-1-5-32-546"
+# expected `Users with uid =~ /S\-1\-5\-21\-\d+\-\d+\-\d+\-500/.disabled?` to return true, got false
+# ×  Security Policy SeBackupPrivilege should not include "S-1-5-32-551"
+# ×  Security Policy SeDenyBatchLogonRight should include "S-1-5-32-546"
+# ×  Security Policy SeDenyRemoteInteractiveLogonRight should include "S-1-5-113"
+# ×  Security Policy SeInteractiveLogonRight should not include "S-1-5-32-545"
+# ×  Security Policy SeInteractiveLogonRight should not include "S-1-5-32-545"
+# ×  Security Policy SeInteractiveLogonRight should not include "S-1-5-32-551"
+# ×  Security Policy SeInteractiveLogonRight should not include "S-1-5-32-551"
+# ×  Security Policy SeNetworkLogonRight should not include "S-1-5-32-545"
+# ×  Security Policy SeNetworkLogonRight should not include "S-1-5-32-545"
+# ×  Security Policy SeNetworkLogonRight should not include "S-1-5-32-551"
+# ×  Security Policy SeNetworkLogonRight should not include "S-1-5-32-551"
+# ×  Security Policy SeRemoteInteractiveLogonRight should not include "S-1-5-32-545"
+# ×  Security Policy SeRemoteInteractiveLogonRight should not include "S-1-5-32-545"
+# ×  Security Policy SeRemoteInteractiveLogonRight should not include "S-1-5-32-551"
+# ×  Security Policy SeRemoteInteractiveLogonRight should not include "S-1-5-32-551"
+# ×  Security Policy SeRestorePrivilege should not include "S-1-5-32-551"
+# ×  Security Policy SeShutdownPrivilege should not include "S-1-5-32-551"
+# ×  Users with uid =~ /S\-1\-5\-21\-\d+\-\d+\-\d+\-500/ should be disabled

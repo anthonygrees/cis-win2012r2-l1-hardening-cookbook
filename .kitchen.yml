@@ -1,0 +1,25 @@
+---
+driver:
+  name: vagrant
+
+verifier:
+  name: inspec
+
+provisioner:
+  name: chef_zero
+
+platforms:
+  - name: win2012r2
+    driver_config:
+      box: chef/windows-server-2012r2-standard
+
+suites:
+  - name: default
+    run_list:
+      - recipe[windows-hardening::enable_winrm_access]
+      - recipe[cis-win2012r2-l1-hardening::default]
+    attributes:
+      security_policy:
+        rights:
+          SeNetworkLogonRight: '*S-1-1-0, *S-1-5-32-544, *S-1-5-32-545, *S-1-5-32-551'
+          SeRemoteInteractiveLogonRight: '*S-1-1-0, *S-1-5-32-544, *S-1-5-32-545, *S-1-5-32-551'
