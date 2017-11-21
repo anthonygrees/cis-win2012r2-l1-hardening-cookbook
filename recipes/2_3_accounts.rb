@@ -117,36 +117,47 @@ registry_key 'CIS 2.3.9.2, 2.3.9.3, 2.3.9.5' do
   action :create
 end
 
-# 'Network security: LAN Manager authentication level' is set to 'Send NTLMv2 response only. Refuse LM  NTLM'# Ensure 'Network access: Do not allow anonymous enumeration of SAM accounts and shares' is set to 'Enabled'
+# CIS 2.3.11.7 is more stringent, override this from windows-hardening
+delete_resource!(:registry_key, 'HKLM\\System\\CurrentControlSet\\Control\\Lsa')
+
+# 'Network access: Do not allow anonymous enumeration of SAM accounts and shares' is set to 'Enabled'
 # 'Network security: Allow Local System to use computer identity for NTLM' is set to 'Enabled'
-registry_key 'CIS: 2.3.10.3' do
+# 'Network security: LAN Manager authentication level' is set to 'Send NTLMv2 response only. Refuse LM  NTLM'
+registry_key 'CIS: 2.3.10.3, 2.3.11.1, 2.3.11.7' do
   key 'HKLM\\System\\CurrentControlSet\\Control\\Lsa'
   values [{
-    name: 'LmCompatibilityLevel',
+    name: 'RestrictAnonymous',
     type: :dword,
-    data: 5,
+    data: 1,
   },
-    {
-      name: 'RestrictAnonymous',
-      type: :dword,
-      data: 1,
-    },
     {
       name: 'UseMachineId',
       type: :dword,
       data: 1,
+    },
+    {
+      name: 'LmCompatibilityLevel',
+      type: :dword,
+      data: 5,
     }]
   action :create
 end
 
 # 'Network access: Named Pipes that can be accessed anonymously'
-registry_key 'CIS 2.3.10.6' do
+# 'Network access: Shares that can be accessed anonymously' is set to 'None'
+registry_key 'CIS 2.3.10.6, 2.3.10.10' do
   key 'HKLM\\System\\CurrentControlSet\\Services\\LanManServer\\Parameters'
   values [{
     name: 'NullSessionPipes',
-    type: :string,
-    data: 'LSARPC, NETLOGON, SAMR'
-  }]
+    type: :dword,
+    data: ''
+  },
+    {
+      name: 'NullSessionShares',
+      type: :dword,
+      data: ''
+    }
+  ]
   action :create_if_missing
 end
 
