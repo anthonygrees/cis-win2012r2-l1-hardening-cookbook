@@ -13,11 +13,12 @@ return unless node['platform_family'] == 'windows'
 # Windows Firewall: Domain: Settings: Apply local connection security rules' is set to 'Yes (default)
 registry_key 'CIS: 9.1.1, 9.1.2, 9.1.3, 9.1.4, 9.1.5, 9.1.6' do
   key 'HKLM\\Software\\Policies\\Microsoft\\WindowsFirewall\\DomainProfile'
-  values [{
-    name: 'EnableFirewall',
-    type: :dword,
-    data: 1,
-  },
+  values [
+    {
+      name: 'EnableFirewall',
+      type: :dword,
+      data: 1,
+    },
     {
       name: 'DefaultInboundAction',
       type: :dword,
@@ -54,11 +55,12 @@ end
 # Windows Firewall: Domain: Logging: Log successful connections' is set to 'Yes'
 registry_key 'CIS: 9.1.7, 9.1.8, 9.1.9, 9.1.10' do
   key 'HKLM\\Software\\Policies\\Microsoft\\WindowsFirewall\\DomainProfile\\Logging'
-  values [{
-    name: 'LogFilePath',
-    type: :string,
-    data: '%SYSTEMROOT%\\System32\\logfiles\\firewall\\domainfw.log',
-  },
+  values [
+    {
+      name: 'LogFilePath',
+      type: :string,
+      data: '%SYSTEMROOT%\\System32\\logfiles\\firewall\\domainfw.log',
+    },
     {
       name: 'LogFileSize',
       type: :dword,
@@ -118,7 +120,7 @@ registry_key 'CIS: 9.2.1, 9.2.2, 9.2.3, 9.2.4, 9.2.5, 9.2.6' do
       name: 'AllowLocalIPsecPolicyMerge',
       type: :dword,
       data: 1,
-    }
+    },
   ]
   recursive true
   action :create_if_missing
@@ -150,7 +152,7 @@ registry_key 'CIS: 9.2.7, 9.2.8, 9.2.9, 9.2.10' do
       name: 'LogSuccessfulConnections',
       type: :dword,
       data: 1,
-    }
+    },
   ]
   recursive true
   action :create_if_missing
@@ -194,7 +196,7 @@ registry_key 'CIS: 9.3.1, 9.3.2, 9.3.3, 9.3.4, 9.3.5, 9.3.6' do
       name: 'AllowLocalIPsecPolicyMerge',
       type: :dword,
       data: 0,
-    }
+    },
   ]
   recursive true
   action :create_if_missing
