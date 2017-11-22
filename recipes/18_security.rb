@@ -392,7 +392,7 @@ registry_key 'CIS 18.9.24.1.1, 18.9.24.1.2' do
   values [
     {
       name: 'Retention',
-      type: :dword,
+      type: :string,
       data: '0',
     },
     {
@@ -410,8 +410,8 @@ registry_key 'CIS 18.9.24.2.1, 18.9.24.2.2' do
   values [
     {
       name: 'Retention',
-      type: :dword,
-      data: 0 },
+      type: :string,
+      data: '0' },
     {
       name: 'MaxSize',
       type: :dword,
@@ -427,8 +427,8 @@ registry_key 'CIS 18.9.24.3.1, 18.9.24.3.2' do
   values [
     {
       name: 'Retention',
-      type: :dword,
-      data: 0 },
+      type: :string,
+      data: '0' },
     {
       name: 'MaxSize',
       type: :dword,
