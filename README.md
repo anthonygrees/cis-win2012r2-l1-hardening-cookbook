@@ -2,6 +2,8 @@
 
 This cookbook provides recipes for ensuring that a Windows 2012 R2 system is compliant with the CIS Benchmark for Windows 2012r2 L1 Memberserver InSpec Profile shipped with Chef Automate.
 
+NOTE: This version allows WinRM ! ! !
+
 ## Cookbooks
 
 This cookbook extends the excellent [Dev-Sec.io Windows Hardening Cookbook](https://github.com/dev-sec/chef-windows-hardening). Some patches should probably get upstreamed.
@@ -13,6 +15,7 @@ This cookbook extends the excellent [Dev-Sec.io Windows Hardening Cookbook](http
 ## License and Author
 
 * Author:: Matt Ray <matt@chef.io>
+* Lazy contributor:: Anthony Rees <anthony@chef.io>
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
